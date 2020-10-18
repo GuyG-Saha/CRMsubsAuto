@@ -4,6 +4,7 @@ from typing import List
 import csv
 import json
 import time
+
 import requests
 
 URL = 'http://10.83.9.33:8080/v1/subscription'
@@ -43,15 +44,17 @@ def submit_request_subscription(subscriber_data: dict) -> bool:
 subscriber_obj = {'uuId': None, 'personalDetails':
     {'firstName': 'Guy', 'lastName': 'test', 'middleName': 'py', 'gender': 'MALE', 'identityNumber': '',
      'identityType': 'ID', 'birthday': '1990-01-14T10:00:00.000Z'},
-     'status': 'ACTIVE', 'type': 'SIM', 'account': {'uuId': '31047b89-4a92-48db-86fa-9bd4de28ffc4', 'name': 'Dell'}, 'keyValue': '<msisdn>',
-     'imei': '1111111111', 'imsi': '<imsi>', 'networkResource': '<iccid>'}
+     'status': 'ACTIVE', 'type': 'SIM', 'account': {'uuId': '31047b89-4a92-48db-86fa-9bd4de28ffc4', 'name': 'Dell'},
+      'keyValue': '<msisdn>', 'imei': '1111111111', 'imsi': '<imsi>', 'networkResource': '<iccid>'}
 
 data_lst = load_data_from_file()
 
 print('Please enter active token for env')
 TOKEN = input()
 
-print(assign_values_to_subscriber(4, data_lst, subscriber_obj))
+iterations: int = ...
+
+print(assign_values_to_subscriber(iterations, data_lst, subscriber_obj))
 
 
 
